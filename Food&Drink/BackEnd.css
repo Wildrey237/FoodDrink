@@ -106,7 +106,10 @@ label{
 input{
      height: 35px;
 }
-input[type=radio]{
+input[type=radio], input[type=checkbox]{
     height: 24px;
 }
 
+.foreign{
+    width: auto;
+}
