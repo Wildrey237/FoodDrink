@@ -14,7 +14,7 @@ body {
 
 
 .navbar{
-    background-color: royalblue;
+    background-color: #454745;
 }
 .navbar-brand, .navbar-brand:hover{
     color: white;
@@ -46,7 +46,7 @@ body {
 
 
 .body{
-    background-color:darkturquoise;
+    background-color:#6fbd62;
 }
 
 @media screen and (min-width: 1024px){
@@ -56,51 +56,57 @@ body {
     }
     
 }
-.info{
-    background-color: deeppink;
+
+.info, .add{
+    background-color:rgba(227, 207, 176, 0.9);
 }
+.season, .erase{
+    background-color: rgba(212, 190, 157, 0.9);
+}
+
+
 p, h1{
     display: flex;
     justify-content: center;
 }
 h1{
-    font-size: 1.5em
+    font-size: 1.5em;
+    padding-bottom: 20px;
 }
 
-.season{
-    background-color: firebrick;
-}
-
-.add{
-    background-color: tan;
-}
-
-.erase{
-    background-color: fuchsia;
-}
 
 div{
     display: flex;
     justify-content: center;
 }
 
-input[type=submit]{
+.btn{
     display: block;
     position: relative;
     margin-left: auto;
     margin-right: auto;
 }
-label{
-	display: inline-block;
-	width: 10%;
+
+.btn-info{
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-input[type=radio]{
-	display: inline-block;
+label{
+	width: 6%;
 }
+
 
 .menu{
     margin-top: 20px;
     margin-bottom: 0;
     font-weight: bold;
 }
+input{
+     height: 35px;
+}
+input[type=radio]{
+    height: 24px;
+}
+
