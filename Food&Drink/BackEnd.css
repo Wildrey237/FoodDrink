@@ -36,16 +36,19 @@
 
 @media screen and (min-width: 1024px){
     section{
-        width: 1160px;
+        width: 1300px;
         margin: auto;
     }
     
 }
 
+section{
+    padding: 1em;
+}
 .info, .add{
     background-color:rgba(227, 207, 176, 0.9);
 }
-.season, .erase{
+.season, .list{
     background-color: rgba(212, 190, 157, 0.9);
 }
 
@@ -88,13 +91,32 @@ label{
     margin-bottom: 0;
     font-weight: bold;
 }
-input{
-     height: 35px;
-}
-input[type=radio], input[type=checkbox]{
-    height: 24px;
-}
 
 .foreign{
     width: auto;
+}
+
+
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    table-layout: fixed;
+    width: 65%;
+    border-collapse: collapse;
+}
+th{
+    color: white;
+    background-color: #454745;
+}
+
+tr {
+	background: #e1e1e1;
+    color: black;
+}
+
+tr:nth-child(odd) { 
+	background: #ffffff;
+    color: black;
 }
