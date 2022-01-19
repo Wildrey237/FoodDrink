@@ -1,13 +1,92 @@
-
-body {
-    margin: 0;
-    font-family: var(--bs-body-font-family);
-    font-size: var(--bs-body-font-size);
-    font-weight: var(--bs-body-font-weight);
-    line-height: var(--bs-body-line-height);
-    color: var(--bs-body-color);
-    text-align: var(--bs-body-text-align);
-    background-color: var(--bs-body-bg);
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+#myTab {
+	margin-top: -20px;
 }
+
+#menu, #prod, #notice, #contact{
+    background-color: white;
+}
+
+@media only screen and (max-width:1199px) {
+
+}
+
+@media only screen and (max-width:991px) {
+
+}
+
+@media only screen and (max-width:767px) {
+
+}
+
+@media only screen and (max-width:575px) {
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#primary_nav ul {
+	list-style: none;
+	background: #1c1c1c;
+	padding: 5px 0;
+}
+
+#primary_nav li a {
+	display: block;
+	padding: 0 20px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	letter-spacing: 0.1em;
+	line-height: 2em;
+	height: 2em;
+	border-bottom: 1px solid #383838;
+}
+
+#primary_nav li:last-child a {
+	border-bottom: none;
+}
+
+#primary_nav li a:hover,
+#primary_nav li a:focus {
+	color: #1c1c1c;
+	background: #ccc;
+}
+
+footer {
+	font-family: 'PT Serif', serif;
+	font-style: italic;
+	text-align: center;
+	font-size: 14px;
+}
+
