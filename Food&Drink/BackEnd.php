@@ -58,6 +58,18 @@
                     print_r($result->errorInfo());
                 }
         }
+        if (isset($_POST['modif_saison'])){
+            $cours = $_POST['cours_saison'];
+            $ajout="UPDATE `menu` SET EnCours = 0;";
+            $ajout.="UPDATE menu SET EnCours = 1 WHERE saisons_idsaison = $cours";
+            $result=$dbh->prepare($ajout);
+            $execute=$result->execute();
+            if($execute){
+                echo 'Vous avez ajouter un pokémon, veuillez recharger la base de donnée pour le voir';
+            }else{
+                echo "Vous n'avez pas remplie tout le formulaire";
+            }
+        }
         ?>
         <section class="info">
                 <h1>Modification des informations</h1>
@@ -75,23 +87,25 @@
         </section>
         <section class="season">
             <h1>Choisissez la saison en cours</h1>
-                <div>
-                    <input type="radio" id="Hiver" name="nomsaison" value="3" checked>
-                    <label for="Hiver">Hiver</label>
-                </div>
-                <div>
-                    <input type="radio" id="Printemps" name="nomsaison" value="4">
-                    <label for="Printemps">Printemps</label>
-                </div>
-                <div>
-                    <input type="radio" id="Été" name="nomsaison" value="1">
-                    <label for="Été">Été</label>
-                </div>
-                <div>
-                    <input type="radio" id="Automne" name="nomsaison" value="2">
-                    <label for="Automne">Automne</label>
-                </div>
-                    <input type="submit" class ="btn" value="Valider la saison">
+                <form action='BackEnd.php' method='POST'>
+                    <div>
+                        <input type="radio" id="Hiver" name="cours_saison" value="3" checked>
+                        <label for="Hiver">Hiver</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Printemps" name="cours_saison" value="4">
+                        <label for="Printemps">Printemps</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Été" name="cours_saison" value="1">
+                        <label for="Été">Été</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Automne" name="cours_saison" value="2">
+                        <label for="Automne">Automne</label>
+                    </div>
+                    <input type="submit" class ="btn" name="modif_saison" value="Valider la saison">
+                </form>
         </section>
         <section class="add">
             <h1>Nouveau menu à la carte</h1>
