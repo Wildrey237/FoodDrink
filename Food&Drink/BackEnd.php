@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang='eng'>
+    <head>
+        <meta charset="utf-8">
+        <title>Food & Drink</title>
+        <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-5.1.3-dist/js/bootstrap.js">
+        <link rel="stylesheet" href="BackEnd.css">
+        <link rel="shortcut icon" type="image/svg" href="food-and-drink.svg">
+    </head>
+    <header>
+        <nav class="navbar navbar-expand-md">
+            <a class="navbar-brand"><img width="100" src="food-and-drink.svg"></a>
+            <a class="navbar-brand">Food and Drink</a>
+            <div class="navbar-collapse">
+                <form class="form-inline">
+                    <button class="btn btn-outline-success" type="button">Déconnexion</button>
+                  </form>
+            </div>
+        </nav>        
+    </header>
+    <body class="body">
+        <?php
+        $user = 'root';
+        $password = 'root';
+
+        $dbh = new PDO ('mysql:host=localhost;dbname=Pokédex',$user, $password);
+
+        $sth = $dbh->prepare('Select * from Pokemon');
+        $sth->execute();
+        $results = $sth->fetchAll();
+
+        if (isset($_GET['all'])){
+            $sth = $dbh->prepare('Select * from Pokemon');
+            $sth->execute();
+            $results = $sth->fetchAll();
+        }else{
+            $sth = $dbh->prepare('Select * from Pokemon where Cacher = 1');
+            $sth->execute();
+            $results = $sth->fetchAll();
+        }
+        ?>
+        <section class="info">
+                <h1>Modification des informations</h1>
+                <form class="modif" action='BackEnd.html' method='POST'>
+                    <div>
+                        <input type="tel" name="" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Téléphone (ex : 01 23 45 67 89)"></input> <!--name a changer-->
+                        <input type='text' name='' placeholder="Adresse"></input> <!--name a changer-->
+                    </div>
+                    <div>
+                        <input type="email" name='' placeholder="Email"></input> <!--name a changer-->
+                        <input type="submit" class ="btn btn-info" value="Valider"></div>
+                    </div>
+                        
+                </form>
+        </section>
+        <section class="season">
+            <h1>Choisissez la saison en cours</h1>
+                <div>
+                    <input type="radio" id="Hiver" name="season" value="Hiver" checked>
+                    <label for="Hiver">Hiver</label>
+                </div>
+                <div>
+                    <input type="radio" id="Printemps" name="season" value="Printemps">
+                    <label for="Printemps">Printemps</label>
+                </div>
+                <div>
+                    <input type="radio" id="Été" name="season" value="Été">
+                    <label for="Été">Été</label>
+                </div>
+                <div>
+                    <input type="radio" id="Automne" name="season" value="Automne">
+                    <label for="Automne">Automne</label>
+                </div>
+                    <input type="submit" class ="btn" value="Valider la saison">
+        </section>
+        <section class="add">
+            <h1>Nouveau menu à la carte</h1>
+                <form class="modif" action='BackEnd.html' method='POST'>
+                    <div>
+                        <input type='text' name='' placeholder="Nom du menu" required></input>    <!--name a changer-->
+                        <input type='number' name='' placeholder="Tarif (€)" min=0 step=0.01 required></input> <!--name a changer-->
+                    </div>
+                    <div>
+                        <input type="radio" id="Hiver" name="season" value="Hiver" checked>
+                        <label for="Hiver">Hiver</label>
+                        <input type="radio" id="Printemps" name="season" value="Printemps">
+                        <label for="Printemps">Printemps</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="Été" name="season" value="Été">
+                        <label for="Été">Été</label>
+                        <input type="radio" id="Automne" name="season" value="Automne">
+                        <label for="Automne">Automne</label>
+                    </div>
+                    <div>
+                        <p class="menu">Entrée</p>
+                    </div>
+                    <div>
+                        <input type="text" name="" placeholder="Nom" required></input> <!--name a changer-->
+                    </div>
+                    <div>
+                        <p class="menu">Plat</p>
+                    </div>
+                    <div>
+                        <input type='text' name='' placeholder="Nom" required></input> <!--name a changer-->
+                    </div>
+                    <div>
+                        <p class="menu">Dessert</p>
+                    </div>
+                    <div>
+                        <input type='text' name='' placeholder="Nom" required></input> <!--name a changer-->
+                    </div>
+                    <div>
+                        <p class="menu">Boisson</p>
+                    </div>
+                    <div>
+                        <input type='text' name='' placeholder="Nom" required></input> <!--name a changer-->
+                    </div>
+                    <div>
+                        <p class="menu">Producteur</p>
+                    </div>
+                    <div>
+                        <input type='text' name='' placeholder="Nom" required></input> <!--name a changer-->
+                    </div>
+                    <div>
+                        <input type="file" name="" accept="image/png, image/jpeg" required><!--name a changer-->
+                    </div>
+                    <input type="submit" class ="btn" value="Ajouter un menu">
+                </form>
+        </section>
+        <section class="list">
+            <h1>Listes des menus</h1> <!--php ajouter : liste des menu et "effacer" avec booléen    Bouton effacer à faire-->
+            <div>
+                <form action='BackEnd.php' method='GET'>
+                    <input type="checkbox" name="all" <?php if(isset($_GET['all'])) echo 'checked'; ?> onclick="submit()">
+                    <label class="foreign">Voir les anciens menus</label>
+                </form>
+            </div>
+            <?php
+            echo "<table>";
+            echo "<tr><th>Nom</th><th>Description</th><th>PV maximun</th></tr>";
+            for ($i=0; $i < count($results); $i++){
+                $result = $results[$i];
+                $nom = $result['Nom'];
+                $desc = $result['Description'];
+                $pv = $result['PV_Max'];
+                echo "<tr><td> $nom </td><td> $desc </td><td> $pv </td></tr>";
+            }
+            ?>
+        </section>
+    </body>
+</html>
