@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<form action='foodrink2.php' method='POST'>
+    nom menu : <input type='text' name='NEW_nom_menu'></input></br>
+    entree : <input type='text' name='NEW_entree'></input></br>
+    plat de resistance : <input type='text' name='NEW_plat'></input></br>
+    dessert : <input type='text' name='NEW_dessert'></input></br>
+    tarif : <input type="number" step="0.01" name='NEW_tarif'></input></br>
+    boisson : <input type='text' name='NEW_boisson'></input></br>
+    producteurs : <input type='text' name='NEW_producteurs'></input></br>
+    saison de production : <input type="radio" id="Eté" name="NEW_saison" value='1'
+                           checked>
+                           <label for="Eté">Eté</label>
+                           <input type="radio" id="Hiver" name="NEW_saison" value='3'
+                           checked>
+                           <label for="Hiver">Hiver</label>
+                           <input type="radio" id="Automne" name="NEW_saison" value='2'
+                           checked>
+                           <label for="Automne">Automne</label>
+                           <input type="radio" id="Printemps" name="NEW_saison" value='4'
+                           checked>
+                           <label for="Printemps">Printemps</label></br>
+    photo : <input type="url" name="NEW_photo"></br>
+    <input type="submit" value="ENVOYER" name="envoyer"></input></br>
+</form>
+<body>
+    <php 
+    echo(generate_html($array));
+    ?></php>
+        nouvelle entree : <input type='text' name='nv_entree'></input></br>
+        nouveau plat de resistance : <input type='text' name='nv_plat_de_resistance'></input></br>
+        nouveau dessert : <input type='text' name='nv_dessert'></input></br>
+        nouveau tarif : <input type="number" step="0.01" name='nv_tarif'></input></br>
+        nouvelle boisson : <input type='text' name='nv_boissons'></input></br>
+        nouveaux producteurs : <input type='text' name='nv_producteurs'></input></br>
+        nouvelle photo : <input type="url" name="nv_photo"></br>
+        <input type="submit" value="CHANGER" name="changer"></input></br>
+    </form>
+    </body>
